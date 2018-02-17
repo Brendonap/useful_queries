@@ -87,4 +87,8 @@ SELECT
 FROM pg_stat_all_tables
 WHERE schemaname = 'public'
   AND pg_relation_size(relname::regclass) > 80000
-ORDER BY too_much_seq DESC;
+ORDER BY too_much_seq DESC
+;
+
+-- change data type of coumn
+ALTER TABLE customers ALTER COLUMN customer_id TYPE integer USING customer_id::[DATATYPE];
